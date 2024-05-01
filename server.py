@@ -63,7 +63,7 @@ def login_post():
         if user and user[1] == password:
             session['username'] = username
             flash(f"Добро пожаловать, {username}!", 'success')
-            return redirect(url_for('menu'))
+            return redirect(url_for('person_panel'))
 
         flash("Неверное имя пользователя или пароль. Пожалуйста, попробуйте снова.", 'error')
 
@@ -89,7 +89,7 @@ def register():
             conn.close()
 
             flash(f"Регистрация успешна для пользователя: {username}", 'success')
-            return redirect(url_for('menu'))
+            return redirect(url_for('person_panel'))
 
     return render_template('register.html')
 
@@ -122,9 +122,14 @@ def profile():
         flash("Пожалуйста, войдите в систему, чтобы получить доступ к профилю.", 'error')
         return redirect(url_for('index'))
 
-@app.route('/menu')
-def menu():
-    return render_template('menu.html')
+@app.route('/person_panel')
+def person_panel():
+    if 'username' in session:
+        return render_template('person_panel.html')
+    else:
+        flash("Пожалуйста, войдите в систему, чтобы получить доступ к пользователю", 'error')
+        return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)

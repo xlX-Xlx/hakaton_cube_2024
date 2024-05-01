@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BRAINBYTE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_person_panel.css') }}">
+</head>
+<body>
+    <h1>BRAINBYTE</h1>
+
+    <button type="submit" class="top-left">
+        <img src="{{ url_for('static', filename='img/button_logo.png') }}" alt="Кнопка с изображением" class="small-img">
+    </button>
+
+    <form action="{{ url_for('profile') }}" method="GET">
+        <button type="submit" class="top-right">
+            <img src="{{ url_for('static', filename='img/button_profile.png') }}" alt="Кнопка с изображением" class="small-img">
+        </button>
+    </form>
+
+    <div class="calendar">
+        <header>
+          <h3></h3>
+          <nav>
+            <button id="prev"></button>
+            <button id="next"></button>
+          </nav>
+        </header>
+        <section>
+          <ul class="days">
+            <li>П</li>
+            <li>В</li>
+            <li>С</li>
+            <li>Ч</li>
+            <li>П</li>
+            <li>С</li>
+            <li>В</li>
+          </ul>
+          <ul class="dates"></ul>
+        </section>
+      </div>
+      <script src="{{ url_for('static', filename='js_scripts/script_calendar.js') }}"></script>
+</body>
+</html>

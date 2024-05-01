@@ -1,0 +1,144 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #151515;
+    font-family: 'Montserrat', sans-serif;
+    position: relative; 
+}
+
+h1 {
+    position: absolute;
+    top: calc(50% + 65px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ADFF2F;
+    color: #1D1D1D;
+    font-weight: bold;
+    white-space: nowrap;
+    text-align: center; 
+    font-size: 2.25em;
+    padding: 20px;
+    margin: 0;
+    border-radius: 25px;
+    width: 60%;
+}
+
+.top-left,
+.top-right {
+    position: absolute;
+    z-index: 1000;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.top-left {
+    top: calc(50% + 33px);
+    left: 19.5%;
+}
+
+.top-right {
+    top: calc(50% + 40px);
+    right: 19.5%;
+}
+
+.small-img {
+    width: 75%;
+    height: auto;
+}
+
+.calendar {
+    position: absolute;
+    top: calc(50% - 65px);
+    left: 53%;
+    transform: translate(50%, 50%); 
+    margin: auto;
+    width: 98%;
+    max-width: 320px;
+    padding: 1rem;
+    background: #151515;
+    border-radius: 31px;
+    border: 2px solid rgb(173, 255, 47); 
+  }
+.calendar h3 {
+    color: #ADFF2F;
+    font-size: 1.5em;
+}
+.calendar header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.calendar nav {
+    display: flex;
+    align-items: center;
+}
+.calendar ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.calendar ul li {
+    width: calc(100% / 7);
+    margin-top: 25px;
+    position: relative;
+    z-index: 2;
+}
+#prev,
+#next {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+#prev::before,
+#next::before {
+    content: "";
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-style: solid;
+    border-width: 0.25em 0.25em 0 0;
+    border-color: #ADFF2F;
+}
+#next::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+#prev::before {
+    transform: translate(-50%, -50%) rotate(-135deg);
+}
+#prev:hover::before,
+#next:hover::before {
+    border-color: #71B803;
+}
+.days {
+    font-weight: 600;
+    color: #71B803;
+}
+.dates li{
+    color: #ADFF2F;
+}
+.dates li.today {
+    color: #151515;
+}
+.dates li.today::before {
+    content: "";
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ADFF2F;
+    border-radius: 50%;
+    z-index: -1;
+}
+.dates li.inactive {
+    color: #71B803;
+}
