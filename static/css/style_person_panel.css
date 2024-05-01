@@ -21,7 +21,19 @@ h1 {
     padding: 20px;
     margin: 0;
     border-radius: 25px;
-    width: 60%;
+    width: 47%;
+}
+
+h2 {
+    position: absolute;
+    top: calc(50% + 650px);
+    left: 33.5%;
+    transform: translate(-50%, -50%);
+    color: #ADFF2F;
+    font-weight: bold;
+    white-space: nowrap;
+    font-size: 2.25em;
+    margin: 0;
 }
 
 .top-left,
@@ -35,12 +47,12 @@ h1 {
 
 .top-left {
     top: calc(50% + 33px);
-    left: 19.5%;
+    left: 26%;
 }
 
 .top-right {
     top: calc(50% + 40px);
-    right: 19.5%;
+    right: 26%;
 }
 
 .small-img {
@@ -51,7 +63,7 @@ h1 {
 .calendar {
     position: absolute;
     top: calc(50% - 65px);
-    left: 53%;
+    left: 47%;
     transform: translate(50%, 50%); 
     margin: auto;
     width: 98%;
@@ -139,6 +151,41 @@ h1 {
     border-radius: 50%;
     z-index: -1;
 }
+
 .dates li.inactive {
     color: #71B803;
+}
+
+.button-container {
+    position: absolute;
+    top: calc(50% + 850px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button-column {
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 30px; 
+    margin-top: 30px; 
+}
+
+.button-test-wrapper {
+    width: calc(50% - 15px); 
+    margin-bottom: 20px; 
+}
+
+
+.button_test {
+    width: 100%; 
+    background: none;
+    border: none;
+    padding: 5px; 
+}
+
+.button_test img {
+    width: 100%; 
+    height: auto;
 }

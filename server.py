@@ -131,5 +131,37 @@ def person_panel():
         return redirect(url_for('index'))
 
 
+@app.route('/test_easy')
+def test_easy():
+    if 'username' in session:
+        return render_template('test_easy.html')
+    else:
+        flash("Пожалуйста, войдите в систему, чтобы получить доступ к тесту", 'error')
+        return redirect(url_for('index'))
+
+@app.route('/test_normal')
+def test_normal():
+    if 'username' in session:
+        return render_template('test_normal.html')
+    else:
+        flash("Пожалуйста, войдите в систему, чтобы получить доступ к тесту", 'error')
+        return redirect(url_for('index'))
+
+@app.route('/test_hard')
+def test_hard():
+    if 'username' in session:
+        return render_template('test_hard.html')
+    else:
+        flash("Пожалуйста, войдите в систему, чтобы получить доступ к тесту", 'error')
+        return redirect(url_for('index'))
+
+@app.route('/test_very_hard')
+def test_very_hard():
+    if 'username' in session:
+        return render_template('test_very_hard.html')
+    else:
+        flash("Пожалуйста, войдите в систему, чтобы получить доступ к тесту", 'error')
+        return redirect(url_for('index'))
+
 if __name__ == '__main__':
     app.run(debug=True)

@@ -7,6 +7,7 @@
 <body>
     <h1>BRAINBYTE</h1>
 
+    <!-- Кнопки в верхнем левом и правом углах -->
     <button type="submit" class="top-left">
         <img src="{{ url_for('static', filename='img/button_logo.png') }}" alt="Кнопка с изображением" class="small-img">
     </button>
@@ -17,27 +18,63 @@
         </button>
     </form>
 
+    <h2>ПРОВЕРЬ СЕБЯ</h2>
+
+    <div class="button-container">
+      <div class="button-column">
+          <div class="button-test-wrapper">
+              <form action="{{ url_for('test_easy') }}" method="GET">
+                  <button type="submit" class="button_test">
+                      <img src="{{ url_for('static', filename='img/button_easy.png') }}" alt="Кнопка с изображением" class="button_img1">
+                  </button>
+              </form>
+          </div>
+          <div class="button-test-wrapper">
+              <form action="{{ url_for('test_normal') }}" method="GET">
+                  <button type="submit" class="button_test">
+                      <img src="{{ url_for('static', filename='img/button_normal.png') }}" alt="Кнопка с изображением" class="button_img2">
+                  </button>
+              </form>
+          </div>
+          <div class="button-test-wrapper">
+              <form action="{{ url_for('test_hard') }}" method="GET">
+                  <button type="submit" class="button_test">
+                      <img src="{{ url_for('static', filename='img/button_hard.png') }}" alt="Кнопка с изображением" class="button_img3">
+                  </button>
+              </form>
+          </div>
+          <div class="button-test-wrapper">
+              <form action="{{ url_for('test_very_hard') }}" method="GET">
+                  <button type="submit" class="button_test">
+                      <img src="{{ url_for('static', filename='img/button_very_hard.png') }}" alt="Кнопка с изображением" class="button_img4">
+                  </button>
+              </form>
+          </div>
+      </div>
+  </div>
+    
+    <!-- Календарь -->
     <div class="calendar">
         <header>
-          <h3></h3>
-          <nav>
-            <button id="prev"></button>
-            <button id="next"></button>
-          </nav>
+            <h3></h3>
+            <nav>
+                <button id="prev"></button>
+                <button id="next"></button>
+            </nav>
         </header>
         <section>
-          <ul class="days">
-            <li>П</li>
-            <li>В</li>
-            <li>С</li>
-            <li>Ч</li>
-            <li>П</li>
-            <li>С</li>
-            <li>В</li>
-          </ul>
-          <ul class="dates"></ul>
+            <ul class="days">
+                <li>П</li>
+                <li>В</li>
+                <li>С</li>
+                <li>Ч</li>
+                <li>П</li>
+                <li>С</li>
+                <li>В</li>
+            </ul>
+            <ul class="dates"></ul>
         </section>
-      </div>
-      <script src="{{ url_for('static', filename='js_scripts/script_calendar.js') }}"></script>
+    </div>
+    <script src="{{ url_for('static', filename='js_scripts/script_calendar.js') }}"></script>
 </body>
 </html>
