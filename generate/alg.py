@@ -1,5 +1,6 @@
 import random
 import math
+from sympy import Rational
 
 class Generate():
     def __init__(self) -> None:
@@ -9,7 +10,8 @@ class Generate():
                                76, 77, 78, 80, 81, 82, 84, 85, 86, 87, 88, 90, 91, 92, 93, 94, 95, 96, 98, 99, 100]
 
 
-    def simple_examples(self, sign):
+    def simple_examples(self):
+        sign = "+" if random.random() > 0.5 else "-"
         a = random.randint(1, 30)
         b = random.randint(1, a if sign == "-" else 30)
         answer = a + b if sign == "+" else a - b
@@ -29,8 +31,7 @@ class Generate():
                 sign_between_branches = signs[random.randint(0, 1)]
                 a = random.randint(1, 30)
                 b = random.randint(1, 30 if sign == "+" else a)
-
-                # branches.append(f"({a} {sign} {b})")
+                
                 ans = a + b if sign == "+" else a - b
 
                 if i > 0:
@@ -68,6 +69,30 @@ class Generate():
                 b = random.randint(2, 10)
 
                 return [f"{a} {sign} {b}", a * b]
+            
+    def generate_prime(self):
+        while True:
+            num = random.randint(1, 20)
+            if num > 1:
+                for i in range(2, num):
+                    if (num % i) == 0:
+                        break
+                else:
+                    return num
+
+    def generate_quadratic_equation(self):
+    # Генерация рациональных коэффициентов для квадратного уравнения
+        a = Rational(random.randint(-10, 10), random.randint(1, 10))
+        b = Rational(random.randint(-10, 10), random.randint(1, 10))
+    
+    # Генерация простых корней
+        root1 = Rational(self.generate_prime())
+        root2 = Rational(self.generate_prime())
+    
+    # Построение квадратного уравнения
+        c = a * root1 * root2 + b * (root1 + root2)
+    
+        return a, b, c, root1, root2
             
 if __name__ == "__main__":
     print("function to generate various mathematical examples")
