@@ -2,65 +2,19 @@
 <html>
 <head>
     <title>Профиль пользователя</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f2f2f2;
-        }
-        .profile-info {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #666;
-            font-size: 16px;
-        }
-        img {
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
-        .upload-form {
-            margin-top: 20px;
-        }
-        .upload-form input[type="file"] {
-            display: none;
-        }
-        .upload-form label {
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-right: 10px; /* Добавлено для отступа */
-        }
-        .upload-form label:hover {
-            background-color: #0056b3;
-        }
-        .upload-button, .menu-button, .logout-button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: #007bff;
-            color: #fff;
-            text-decoration: none;
-            cursor: pointer;
-            margin-top: 10px; /* Добавлено для отступа */
-        }
-        .upload-button:hover, .menu-button:hover, .logout-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_profile.css') }}">
 </head>
 <body>
     <h1>Профиль пользователя</h1>
+
+    <button type="submit" class="top-left">
+        <img src="{{ url_for('static', filename='img/button_logo.png') }}" alt="Кнопка с изображением" class="small-img">
+    </button>
+
+    <button type="submit" class="top-right">
+        <img src="{{ url_for('static', filename='img/button_logo.png') }}" alt="Кнопка с изображением" class="small-img">
+    </button>
+
     <div class="profile-info">
         <img src="{{ url_for('static', filename='avatars/' + username + '.jpg') }}" alt="Аватарка" width="150">
         <form action="/upload_avatar" method="post" enctype="multipart/form-data" class="upload-form">
@@ -73,7 +27,7 @@
     </div>
 
     <div class="button-container">
-        <a href="/menu" class="menu-button">Вернуться к меню</a>
+        <a href="/person_panel" class="person_panel-button">Вернуться к задачам</a>
         <a href="/login" class="logout-button">Выход из аккаунта</a>
     </div>
 </body>

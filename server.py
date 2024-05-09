@@ -19,11 +19,9 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS users (
 conn.commit()
 conn.close()
 
-
 @app.route('/')
 def index():
     return render_template('login.html')
-
 
 @app.route('/upload_avatar', methods=['POST'])
 def upload_avatar():

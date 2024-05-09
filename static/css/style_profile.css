@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #151515;
+    font-family: 'Montserrat', sans-serif;
+    position: relative; 
+}
+
+h1 {
+    position: absolute;
+    top: calc(50% + 65px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ADFF2F;
+    color: #151515;
+    font-weight: bold;
+    white-space: nowrap;
+    text-align: center; 
+    font-size: 2.25em;
+    padding: 20px;
+    margin: 0;
+    border-radius: 25px;
+    width: 47%;
+}
+
+.top-left,
+.top-right {
+    position: absolute;
+    z-index: 1000;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.top-left {
+    top: calc(50% + 33px);
+    left: 26%;
+}
+
+.top-right {
+    top: calc(50% + 33px);
+    right: 26%;
+}
+
+.small-img {
+    width: 75%;
+    height: auto;
+}
+.profile-info {
+    position: absolute;
+    top: calc(50% + 350px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ADFF2F;
+    padding: 20px;
+    border-radius: 30px;
+    text-align: center;
+}
+
+p {
+    color: #151515;
+    font-size: 16px;
+}
+.profile-info img {
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.upload-form {
+    margin-top: 20px;
+}
+.upload-form input[type="file"] {
+    display: none;
+}
+.upload-form label {
+    background-color: #151515;
+    color: #ADFF2F;
+    font-size: 1em;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px; 
+}
+
+.upload-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #151515;
+    font-size: 1em;
+    color: #ADFF2F;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 10px; 
+}
+
+.person_panel-button {
+    position: absolute;
+    top: calc(50% + 625px);
+    right: calc(50% + 135px); 
+    transform: translate(50%, -50%);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: #ADFF2F;
+    color: #151515;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.logout-button {
+    position: absolute;
+    top: calc(50% + 625px);
+    left: calc(50% + 135px); 
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: #ADFF2F;
+    color: #151515;
+    text-decoration: none;
+    cursor: pointer;
+}
