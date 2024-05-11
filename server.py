@@ -130,6 +130,7 @@ def profile():
 @app.route('/person_panel')
 def person_panel():
     if 'username' in session:
+        session['attempts'] = 3
         return render_template('person_panel.html')
     else:
         flash("Пожалуйста, войдите в систему, чтобы получить доступ к пользователю", 'error')
@@ -140,39 +141,60 @@ def person_panel():
 def test_easy():
     if 'username' in session:
         if 'attempts' not in session:
-            session['attempts'] = 3  # Устанавливаем количество попыток
+            session['attempts'] = 3  
+        else:
+            attempts = session.get('attempts')
+            if attempts == 0:
+                flash("У вас закончились попытки. Попробуйте еще раз!", 'error')
+                return redirect(url_for('person_panel'))
+
         example = alg.Generate.simple_examples(self=None)
-        session['example'] = example
-        return render_template('test_easy.html', example=example, attempts=session['attempts'])
+        if example:
+            session['example'] = example
+            return render_template('test_easy.html', example=example, attempts=session['attempts'])
+        else:
+            flash("Ошибка: Не удалось получить пример", 'error')
+            return redirect(url_for('index'))
     else:
         flash("Пожалуйста, войдите в систему, чтобы получить доступ к тесту", 'error')
         return redirect(url_for('index'))
+
 
 
 @app.route('/submit', methods=['POST'])
 def submit():
     if request.method == 'POST':
         example = session.get('example')
-        answer = request.form['answer']
+        
+        if 'answer' in request.form:
+            answer = request.form['answer']
+        else:
+            flash("Ошибка: Нет ответа в запросе", 'error')
+            return redirect(url_for('test_easy'))
+
         correct_answer = example[1]
+        attempts = session.get('attempts', 3) 
+
         if int(answer) == int(correct_answer):
             print("Получен правильный ответ:", answer)
-            # Получаем имя пользователя из сессии
             username = session.get('username')
-            # Увеличиваем рейтинг пользователя на 1
             conn = sqlite3.connect('users.db')
             cursor = conn.cursor()
             cursor.execute("UPDATE users SET rating = rating + 1 WHERE username = ?", (username,))
             conn.commit()
             conn.close()
             print("Рейтинг пользователя увеличен.")
-            return "Ответ верный!"
+            return render_template('check.html')
         else:
-            session['attempts'] -= 1
+            attempts -= 1  
+            session['attempts'] = attempts  
             print("Получен неправильный ответ:", answer)
-            print("Осталось попыток:", session['attempts'])
+            print("Осталось попыток:", attempts)
+            flash("Неверный ответ. Осталось попыток: {}".format(attempts), 'error')
             return redirect(url_for('test_easy'))
+
     return "Что-то пошло не так!"
+
 
 
 @app.route('/test_normal')
