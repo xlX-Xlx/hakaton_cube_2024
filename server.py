@@ -3,6 +3,8 @@ import sqlite3
 from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
 from algGenerate import Simple, Normal
 import random
+import json
+import html
 
 
 app = Flask(__name__)
@@ -27,7 +29,45 @@ conn.close()
 
 @app.route('/')
 def index():
-    return render_template('login.html')
+    return render_template('main.html')
+
+
+@app.route('/offers')
+def offers():
+    return render_template('offers.html')
+
+
+@app.route('/submit_task', methods=['POST'])
+def submit_task():
+    if 'username' not in session:
+        return jsonify({'error': 'User not logged in!'}), 401
+
+    task_data = {
+        'username': session['username'],
+        'task_name': request.form['task_name'],
+        'task_condition': request.form['task_condition'],
+        'brief_answer': request.form['brief_answer'],
+        'detailed_answer': request.form['detailed_answer']
+    }
+
+    tasks_dir = 'tasks'
+    if not os.path.exists(tasks_dir):
+        os.makedirs(tasks_dir)
+
+    tasks_file = os.path.join(tasks_dir, 'tasks.json')
+    
+    if os.path.exists(tasks_file):
+        with open(tasks_file, 'r', encoding='utf-8') as file:
+            tasks = json.load(file)
+    else:
+        tasks = []
+
+    tasks.append(task_data)
+
+    with open(tasks_file, 'w', encoding='utf-8') as file:
+        json.dump(tasks, file, ensure_ascii=False)
+
+    return jsonify({'message': 'Task submitted successfully!'})
 
 
 @app.route('/upload_avatar', methods=['POST'])
@@ -102,11 +142,13 @@ def register():
 @app.route('/admin_panel')
 def admin_panel():
     if 'username' in session and session['username'] == admin_username:
-        return render_template('admin_panel.html')
+        with open('tasks/tasks.json', 'r', encoding='utf-8') as file:
+            tasks = json.load(file)
+
+        return render_template('admin_panel.html', tasks=tasks)
     else:
         flash("Доступ к админ панели запрещен.", 'error')
         return redirect(url_for('index'))
-
 
 @app.route('/profile')
 def profile():

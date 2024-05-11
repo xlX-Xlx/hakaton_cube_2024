@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRAINBYTE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_main.css') }}">
+</head>
+<body>
+    <div class="box">
+        <img src="{{ url_for('static', filename='img/bg.png') }}" alt="Your Image" class="top-fixed">
+    </div>
+
+    <h1>BRAINBYTE</h1>
+    <button type="submit" class="top-left">
+        <img src="{{ url_for('static', filename='img/button_logo.png') }}" alt="Кнопка с изображением" class="small-img">
+    </button>
+
+    <form action="{{ url_for('login_post') }}" method="GET">
+        <button type="submit" class="top-right">
+            <img src="{{ url_for('static', filename='img/button_profile.png') }}" alt="Кнопка с изображением" class="small-img">
+        </button>
+    </form>
+
+    <div class="circle"></div>
+
+    <script src="{{ url_for('static', filename='js_scripts/blur.js') }}"></script>
+</body>
+</html>

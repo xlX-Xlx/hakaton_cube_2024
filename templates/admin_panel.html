@@ -4,17 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Админ Панель</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_admin_panel.css') }}">
 </head>
 <body>
 <header class="bg-dark text-white text-center py-4">
-    <h1>Активные заказы</h1>
+    <h1>Активные задачи</h1>
+
+    <button type="submit" class="top-left">
+        <img src="{{ url_for('static', filename='img/button_logo.png') }}" alt="Кнопка с изображением" class="small-img">
+    </button>
+
+    <button type="submit" class="top-right">
+        <img src="{{ url_for('static', filename='img/button_logo.png') }}" alt="Кнопка с изображением" class="small-img">
+    </button>
+    <a href="{{ url_for('index') }}" class="back-button">Выйти из аккаунта</a>
 </header>
-<main class="container mt-4">
-    <a href="{{ url_for('index') }}" class="btn btn-danger">Выйти из аккаунта</a>
-</main>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<div class="container">
+    <div class="tasks">
+            {% for task in tasks %}
+                <div class="task">
+                    <h3>{{ task['task_name'] }}</h3>
+                    <p><strong>Имя пользователя:</strong> {{ task['username'] }}</p>
+                    <p><strong>Условие:</strong> {{ task['task_condition'] }}</p>
+                    <p><strong>Краткий ответ:</strong> {{ task['brief_answer'] }}</p>
+                    <p><strong>Развернутый ответ:</strong> {{ task['detailed_answer'] }}</p>
+                </div>
+        {% endfor %}
+    </div>
+</div>
 </body>
 </html>

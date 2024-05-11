@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма для задачи</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_offers.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Форма для задачи</h1>
+
+    <button type="submit" class="top-left">
+        <img src="{{ url_for('static', filename='img/button_logo.png') }}" alt="Кнопка с изображением" class="small-img">
+    </button>
+
+    <button type="submit" class="top-right">
+        <img src="{{ url_for('static', filename='img/button_logo.png') }}" alt="Кнопка с изображением" class="small-img">
+    </button>
+
+    <form id="taskForm">
+        <label for="task_name">Название задачи:</label>
+        <input type="text" id="task_name" name="task_name" required>
+
+        <label for="task_condition">Условие задачи:</label>
+        <textarea id="task_condition" name="task_condition" required></textarea>
+
+        <label for="brief_answer">Краткий ответ на задачу:</label>
+        <textarea id="brief_answer" name="brief_answer" required></textarea>
+
+        <label for="detailed_answer">Развернутый ответ на задачу:</label>
+        <textarea id="detailed_answer" name="detailed_answer" required></textarea>
+
+        <input type="submit" value="Отправить">
+
+        <a href="{{ url_for('profile') }}" class="back-button">Вернуться назад</a>
+    </form>
+</div>
+
+<script>
+    document.getElementById("taskForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var formData = new FormData(this);
+        fetch("/submit_task", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            document.getElementById("taskForm").reset();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+</script>
+
+</body>
+</html>
