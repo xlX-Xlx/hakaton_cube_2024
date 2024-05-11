@@ -1,7 +1,9 @@
 import os
 import sqlite3
 from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
-from generate import alg
+from algGenerate import Simple, Normal
+import random
+
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -145,10 +147,12 @@ def test_easy():
         else:
             attempts = session.get('attempts')
             if attempts == 0:
-                flash("У вас закончились попытки. Попробуйте еще раз!", 'error')
                 return redirect(url_for('person_panel'))
 
-        example = alg.Generate.simple_examples(self=None)
+        example = Simple()
+        example_functions = [example.simple_examples(), example.branch_examples(), example.multNdivide()]
+        example = random.choice(example_functions)
+
         if example:
             session['example'] = example
             return render_template('test_easy.html', example=example, attempts=session['attempts'])
@@ -195,15 +199,64 @@ def submit():
 
     return "Что-то пошло не так!"
 
-
-
 @app.route('/test_normal')
 def test_normal():
     if 'username' in session:
-        return render_template('test_normal.html')
+        if 'attempts' not in session:
+            session['attempts'] = 3  
+        else:
+            attempts = session.get('attempts')
+            if attempts == 0:
+                return redirect(url_for('person_panel'))
+
+        example = Normal()
+        example_functions = [example.simple_equantion(), example.unequalities()]
+        example = random.choice(example_functions)
+
+        if example:
+            session['example'] = example
+            return render_template('test_normal.html', example=example, attempts=session['attempts'])
+        else:
+            flash("Ошибка: Не удалось получить пример", 'error')
+            return redirect(url_for('index'))
     else:
         flash("Пожалуйста, войдите в систему, чтобы получить доступ к тесту", 'error')
         return redirect(url_for('index'))
+
+
+@app.route('/submit_normal', methods=['POST'])
+def submit_normal():
+    if request.method == 'POST':
+        example = session.get('example')
+        
+        if 'answer' in request.form:
+            answer = request.form['answer']
+        else:
+            flash("Ошибка: Нет ответа в запросе", 'error')
+            return redirect(url_for('test_normal'))
+
+        correct_answer = example[1]
+        attempts = session.get('attempts', 3) 
+
+        if int(answer) == int(correct_answer):
+            print("Получен правильный ответ:", answer)
+            username = session.get('username')
+            conn = sqlite3.connect('users.db')
+            cursor = conn.cursor()
+            cursor.execute("UPDATE users SET rating = rating + 3 WHERE username = ?", (username,))
+            conn.commit()
+            conn.close()
+            print("Рейтинг пользователя увеличен.")
+            return render_template('check.html')
+        else:
+            attempts -= 1  
+            session['attempts'] = attempts  
+            print("Получен неправильный ответ:", answer)
+            print("Осталось попыток:", attempts)
+            flash("Неверный ответ. Осталось попыток: {}".format(attempts), 'error')
+            return redirect(url_for('test_normal'))
+
+    return "Что-то пошло не так!"
 
 
 @app.route('/test_hard')
