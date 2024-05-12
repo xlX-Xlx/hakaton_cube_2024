@@ -134,7 +134,7 @@ def register():
             conn.close()
 
             flash(f"Регистрация успешна для пользователя: {username}", 'success')
-            return redirect(url_for('person_panel'))
+            return redirect(url_for('index'))
 
     return render_template('register.html')
 
