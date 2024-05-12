@@ -78,7 +78,7 @@ input[type="password"] {
     color: #ADFF2F;
     background-color: #151515;
     border: 1px solid #ADFF2F;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 input[type="submit"] {
     background-color: #151515;
