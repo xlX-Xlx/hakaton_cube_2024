@@ -76,5 +76,43 @@
         </section>
     </div>
     <script src="{{ url_for('static', filename='js_scripts/script_calendar.js') }}"></script>
+    <div id="canvas-container">
+        <canvas id="canvas"></canvas>
+    </div>
+    <script>
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+        var W = 500; 
+        var H = 422; 
+
+        canvas.width = W;
+        canvas.height = H;
+
+        var fontSize = 16;
+        var columns = Math.floor(W / fontSize);
+        var drops = [];
+        for(var i=0; i<columns; i++){
+            drops.push(0);
+        }
+        var str = "JavaScript Hacking Effect";
+        function draw(){
+            context.fillStyle = "rgba(21,21,21,0.35)";
+            context.fillRect(0, 0, W, H);
+            context.fontSize = "700 " + fontSize + "px";
+            context.fillStyle = "#ADFF2F";
+            for(var i=0; i<columns; i++){
+                var index = Math.floor(Math.random()*str.length);
+                var x = i * fontSize;
+                var y = drops[i] * fontSize;
+                context.fillText(str[index], x, y);
+                if(y >= canvas.height && Math.random() > 0.99){
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        draw();
+        setInterval(draw, 35);
+    </script>
 </body>
 </html>

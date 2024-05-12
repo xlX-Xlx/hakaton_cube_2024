@@ -26,8 +26,14 @@
         <p>Еще не зарегистрированы? <a href="{{ url_for('register') }}">Зарегистрироваться</a></p>
     </form>
 
-    <button class="buttonYan" id="buttonContainerId">
+    <button onclick="redirectToURL()" class="buttonYan" id="buttonContainerId">
         Авторизоваться через Яндекс
     </button>
+
+    <script>
+        function redirectToURL() {
+          window.location.href = "{{ url_for('YanRedir') }}";
+        }
+      </script>
 </body>
 </html>

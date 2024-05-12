@@ -72,7 +72,16 @@ input:-webkit-autofill:focus {
     caret-color: 151515;
 }
 
-input[type="text"],
+input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    color: #ADFF2F;
+    background-color: #151515;
+    border: 1px solid #ADFF2F;
+    border-radius: 15px;
+}
+
 input[type="password"] {
     width: calc(100% - 20px);
     padding: 10px;
