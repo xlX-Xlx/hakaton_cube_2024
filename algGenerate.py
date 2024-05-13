@@ -112,14 +112,5 @@ class Normal:
             return [f"{nums[0]} {eq_signs[0]} {nums[1]} {eq_signs[1]} {nums[2]} = {result}", solution]
         
 
-    def unequalities(self):
-        sign = [(True if random.random() > 0.5 else False) for i in range(2)]
-        si = ["<=" if s else "<" for s in sign]
-        a = random.randint(10, 45)
-        b = random.randint(a + 5, 100)
-        solution = [a if sign[0] else a + 1, 
-                    b if sign[1] else b - 1]
-
-        return f"{a} {si[0]} x {si[1]} {b}", solution 
 
 
