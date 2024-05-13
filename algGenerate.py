@@ -4,10 +4,10 @@ from sympy import Rational
 import numpy as np
 from nums import nums_to_divide, signs, uneq_signs, forDivide, calc, check_sign
 
+
 class Simple:
     def __init__(self) -> None:
         pass
-
 
     def simple_examples(self):
         sign = "+" if random.random() > 0.5 else "-"
@@ -16,7 +16,6 @@ class Simple:
         answer = a + b if sign == "+" else a - b
 
         return [f"{a} {sign} {b}", answer]
-    
 
     def branch_examples(self):
         branches_count = random.randint(2, 4)
@@ -43,7 +42,6 @@ class Simple:
                 branches.append(f"({a} {sign} {b})")
 
         return ["".join([x for x in branches]), sums]
-    
 
     def multNdivide(self):
         sign = signs[random.randint(2, 3)]
@@ -60,18 +58,18 @@ class Simple:
             b = random.randint(2, 10)
 
             return [f"{a} {sign} {b}", int(a * b)]
-            
+
+
 class Normal:
     def __init__(self) -> None:
         pass
-
 
     def simple_equantion(self):
         nums_of_odds = random.randint(2, 3)
 
         if nums_of_odds == 2:
-            sign = signs[random.randint(0, 3)]            
-            
+            sign = signs[random.randint(0, 3)]
+
             a, b = check_sign(sign)
 
             nums = [a, b]
@@ -80,12 +78,13 @@ class Normal:
             nums[idx] = "x"
 
             return [f"{nums[0]} {sign} {nums[1]} = {calc(a, b, sign)}", solution]
-        
+
         elif nums_of_odds == 3:
             eq_signs = []
             while True:
                 eq_signs = [signs[random.randint(0, 3)] for i in range(2)]
-                if (eq_signs.count(":") == 1 or eq_signs.count("×") == 1) and (eq_signs.count(":") + eq_signs.count("×") < 2):
+                if (eq_signs.count(":") == 1 or eq_signs.count("×") == 1) and (
+                        eq_signs.count(":") + eq_signs.count("×") < 2):
                     break
 
             if eq_signs[1] in signs[2:5]:
@@ -110,7 +109,5 @@ class Normal:
                 solution, nums[idx] = nums[idx], "x"
 
             return [f"{nums[0]} {eq_signs[0]} {nums[1]} {eq_signs[1]} {nums[2]} = {result}", solution]
-        
-
 
 

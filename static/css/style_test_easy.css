@@ -3,7 +3,7 @@ body {
     padding: 0;
     background-color: #151515;
     font-family: 'Montserrat', sans-serif;
-    position: relative; 
+    position: relative;
 }
 
 h1 {
@@ -79,6 +79,7 @@ p {
     transform: translate(-50%, -50%);
     color: #151515;
     z-index: 1000;
+    font-size: 1.25em;
 }
 
 button {
@@ -90,4 +91,8 @@ button {
     color: #ADFF2F;
     text-decoration: none;
     cursor: pointer;
+}
+
+label {
+    font-size: 1.5em;
 }

@@ -3,7 +3,7 @@ body {
     padding: 0;
     background-color: #151515;
     font-family: 'Montserrat', sans-serif;
-    position: relative; 
+    position: relative;
 }
 
 h1 {
@@ -55,11 +55,12 @@ h1 {
     padding: 20px;
     border-radius: 30px;
     text-align: center;
+    font-size: 1.25em;
 }
 
 p {
     color: #151515;
-    font-size: 16px;
+    font-size: 1.25em;
 }
 .profile-info img {
     border-radius: 50%;
@@ -74,7 +75,7 @@ p {
 .upload-form label {
     background-color: #151515;
     color: #ADFF2F;
-    font-size: 1em;
+    font-size: 1.25em;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
@@ -86,7 +87,7 @@ p {
     border: none;
     border-radius: 5px;
     background-color: #151515;
-    font-size: 1em;
+    font-size: 1.25em;
     color: #ADFF2F;
     text-decoration: none;
     cursor: pointer;
@@ -100,6 +101,7 @@ p {
     transform: translate(50%, -50%);
     padding: 10px 20px;
     border: none;
+    font-size: 1.25em;
     border-radius: 15px;
     background-color: #ADFF2F;
     color: #151515;
@@ -119,6 +121,7 @@ p {
     color: #151515;
     text-decoration: none;
     cursor: pointer;
+    font-size: 1.25em;
 }
 
 .offers-button {
@@ -133,4 +136,5 @@ p {
     color: #151515;
     text-decoration: none;
     cursor: pointer;
+    font-size: 1.25em;
 }

@@ -9,11 +9,10 @@ import secrets
 import string
 import html
 
-
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
-CLIENT_ID = '623a52b24eba4a6888d3b87d0b2904e2' 
+CLIENT_ID = '623a52b24eba4a6888d3b87d0b2904e2'
 CLIENT_SECRET = '453cfc6b79fe4b2084d803061731ab12'
 TOKEN_URL = 'https://oauth.yandex.ru/token'
 AUTH_URL = 'https://oauth.yandex.ru/authorize'
@@ -64,7 +63,7 @@ def submit_task():
         os.makedirs(tasks_dir)
 
     tasks_file = os.path.join(tasks_dir, 'tasks.json')
-    
+
     if os.path.exists(tasks_file):
         with open(tasks_file, 'r', encoding='utf-8') as file:
             tasks = json.load(file)
@@ -150,13 +149,13 @@ def register():
     return render_template('register.html')
 
 
-@app.route('/YanRedir') 
+@app.route('/YanRedir')
 def YanRedir():
     auth_url = f'{AUTH_URL}?response_type=code&client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}'
     return redirect(auth_url)
 
 
-@app.route('/index') 
+@app.route('/index')
 def callback():
     auth_code = request.args.get('code')
 
@@ -214,6 +213,7 @@ def admin_panel():
         flash("Доступ к админ панели запрещен.", 'error')
         return redirect(url_for('index'))
 
+
 @app.route('/profile')
 def profile():
     if 'username' in session:
@@ -249,7 +249,7 @@ def person_panel():
 def test_easy():
     if 'username' in session:
         if 'attempts' not in session:
-            session['attempts'] = 3  
+            session['attempts'] = 3
         else:
             attempts = session.get('attempts')
             if attempts == 0:
@@ -270,12 +270,11 @@ def test_easy():
         return redirect(url_for('index'))
 
 
-
 @app.route('/submit', methods=['POST'])
 def submit():
     if request.method == 'POST':
         example = session.get('example')
-        
+
         if 'answer' in request.form:
             answer = request.form['answer']
         else:
@@ -283,7 +282,7 @@ def submit():
             return redirect(url_for('test_easy'))
 
         correct_answer = example[1]
-        attempts = session.get('attempts', 3) 
+        attempts = session.get('attempts', 3)
 
         if int(answer) == int(correct_answer):
             print("Получен правильный ответ:", answer)
@@ -296,8 +295,8 @@ def submit():
             print("Рейтинг пользователя увеличен.")
             return render_template('check.html')
         else:
-            attempts -= 1  
-            session['attempts'] = attempts  
+            attempts -= 1
+            session['attempts'] = attempts
             print("Получен неправильный ответ:", answer)
             print("Осталось попыток:", attempts)
             flash("Неверный ответ. Осталось попыток: {}".format(attempts), 'error')
@@ -305,18 +304,19 @@ def submit():
 
     return "Что-то пошло не так!"
 
+
 @app.route('/test_normal')
 def test_normal():
     if 'username' in session:
         if 'attempts' not in session:
-            session['attempts'] = 3  
+            session['attempts'] = 3
         else:
             attempts = session.get('attempts')
             if attempts == 0:
                 return redirect(url_for('person_panel'))
 
         example = Normal()
-        example_functions = [example.simple_equantion(), example.unequalities()]
+        example_functions = [example.simple_equantion()]
         example = random.choice(example_functions)
 
         if example:
@@ -334,7 +334,7 @@ def test_normal():
 def submit_normal():
     if request.method == 'POST':
         example = session.get('example')
-        
+
         if 'answer' in request.form:
             answer = request.form['answer']
         else:
@@ -342,7 +342,7 @@ def submit_normal():
             return redirect(url_for('test_normal'))
 
         correct_answer = example[1]
-        attempts = session.get('attempts', 3) 
+        attempts = session.get('attempts', 3)
 
         if int(answer) == int(correct_answer):
             print("Получен правильный ответ:", answer)
@@ -355,8 +355,8 @@ def submit_normal():
             print("Рейтинг пользователя увеличен.")
             return render_template('check.html')
         else:
-            attempts -= 1  
-            session['attempts'] = attempts  
+            attempts -= 1
+            session['attempts'] = attempts
             print("Получен неправильный ответ:", answer)
             print("Осталось попыток:", attempts)
             flash("Неверный ответ. Осталось попыток: {}".format(attempts), 'error')
