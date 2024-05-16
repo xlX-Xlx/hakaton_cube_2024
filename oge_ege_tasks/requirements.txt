@@ -1,1 +1,0 @@
-sdamgia-api @ git+https://github.com/CanisLupus25/sdamgia-api-extended@usable
