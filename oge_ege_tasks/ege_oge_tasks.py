@@ -76,8 +76,11 @@ class GIATasks:
         return problem
 
     def validate(self, problem):
-        return problem and problem[0]['only_text'] and problem[0]['answer'].replace(',', '.').isdigit() and float(
-            problem[0]['answer'].replace(',', '.')) != 0
+        try:
+            floated = float(problem[0]['answer'].replace(',', '.'))
+        except Exception:
+            return False
+        return problem and problem[0]['only_text'] and floated == float(int(floated))
 
     def get_randowm_oge_task(self):
         for _ in range(20):
