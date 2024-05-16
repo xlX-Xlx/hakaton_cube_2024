@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поздравляю!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_check.css') }}">
+</head>
+<body>
+    <h1>Поздравляю!</h1>
+
+    <button type="submit" class="top-left">
+        <img src="{{ url_for('static', filename='img/button_logo.png') }}" alt="Кнопка с изображением" class="small-img">
+    </button>
+
+    <button type="submit" class="top-right">
+        <img src="{{ url_for('static', filename='img/button_logo.png') }}" alt="Кнопка с изображением" class="small-img">
+    </button>
+
+    <form action="/person_panel" method="GET"> 
+        <label>Молодец ты решил все правильно!</label>
+        <button>Вернуться</button>
+        <p><strong>Ваше колличество баллов:</strong> {{ rating }}</p>
+    </form>
+</body>
+</html>
