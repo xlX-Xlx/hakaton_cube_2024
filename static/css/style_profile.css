@@ -125,8 +125,8 @@ p {
 }
 .achievement {
     position: absolute;
-    top: calc(50% + 475px);
-    left: calc(50% - 325px);
+    top: calc(50% + 550px);
+    left: calc(50% - 375px);
     transform: translate(50%, 50%);
     background-color: #151515;
     border-radius: 31px;
@@ -142,11 +142,685 @@ p {
 .achievement_grad {
     position: absolute;
     top: calc(50% + 1525px);
-    left: calc(50% + 100px);
+    left: 50%;
     transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .achievement_grad img {
     width: 75%;
     height: 75%;
+}
+
+@media (min-width: 320px) {
+    .top-left {
+        top: calc(50% + 46px);
+        left: 20%;
+    }
+    
+    .top-right {
+        top: calc(50% + 46px);
+        right: 20%;
+    }
+    
+    .small-img {
+        width: 45%;
+        height: auto;
+    }
+
+    h1 {
+        position: absolute;
+        top: calc(50% + 65px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ADFF2F;
+        color: #151515;
+        font-weight: bold;
+        white-space: nowrap;
+        text-align: center; 
+        font-size: 0.5em;
+        padding: 20px;
+        margin: 0;
+        border-radius: 15px;
+        width: 47%;
+    }
+
+    .achievement_grad {
+        position: absolute;
+        top: calc(50% + 1225px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .achievement_grad img {
+        width: 1235%;
+        height: 1235%;
+    }
+
+    .achievement {
+        position: absolute;
+        top: calc(50% + 550px);
+        left: calc(50% - 375px);
+        transform: translate(50%, 50%);
+        background-color: #151515;
+        border-radius: 31px;
+        border: 5px solid rgb(173, 255, 47); 
+    }
+    
+    .achievement p {
+        text-align: center;
+        font-size: 1.25em;
+        color: #ADFF2F;
+    }
+
+    .profile-info {
+        position: absolute;
+        top: calc(50% + 350px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ADFF2F;
+        padding: 20px;
+        border-radius: 30px;
+        text-align: center;
+        font-size: 1.25em;
+    }
+    
+    p {
+        color: #151515;
+        font-size: 0.5em;
+    }
+
+    .person_panel-button {
+        position: absolute;
+        top: calc(50% + 625px);
+        right: calc(50% + 135px); 
+        transform: translate(50%, -50%);
+        padding: 10px 20px;
+        border: none;
+        font-size: 0.75em;
+        border-radius: 15px;
+        background-color: #ADFF2F;
+        color: #151515;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .logout-button {
+        position: absolute;
+        top: calc(50% + 625px);
+        left: calc(50% + 135px); 
+        transform: translate(-50%, -50%);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 15px;
+        background-color: #ADFF2F;
+        color: #151515;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 0.75em;
+    }
+
+    .upload-form label {
+        background-color: #151515;
+        color: #ADFF2F;
+        font-size: 0.5em;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px; 
+    }
+
+    .upload-button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #151515;
+        font-size: 0.5em;
+        color: #ADFF2F;
+        text-decoration: none;
+        cursor: pointer;
+        margin-top: 10px; 
+    }
+}
+
+@media (min-width: 480px) {
+    .top-left {
+        top: calc(50% + 45px);
+        left: 23%;
+    }
+    
+    .top-right {
+        top: calc(50% + 45px);
+        right: 23%;
+    }
+    
+    .small-img {
+        width: 50%;
+        height: auto;
+    }
+
+    h1 {
+        position: absolute;
+        top: calc(50% + 65px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ADFF2F;
+        color: #151515;
+        font-weight: bold;
+        white-space: nowrap;
+        text-align: center; 
+        font-size: 0.75em;
+        padding: 20px;
+        margin: 0;
+        border-radius: 25px;
+        width: 47%;
+    }
+
+    .achievement_grad {
+        position: absolute;
+        top: calc(50% + 1300px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .achievement_grad img {
+        width: 125%;
+        height: 125%;
+    }
+
+    .achievement {
+        position: absolute;
+        top: calc(50% + 550px);
+        left: calc(50% - 375px);
+        transform: translate(50%, 50%);
+        background-color: #151515;
+        border-radius: 31px;
+        border: 5px solid rgb(173, 255, 47); 
+    }
+    
+    .achievement p {
+        text-align: center;
+        font-size: 1.25em;
+        color: #ADFF2F;
+    }
+
+    .profile-info {
+        position: absolute;
+        top: calc(50% + 350px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ADFF2F;
+        padding: 20px;
+        border-radius: 30px;
+        text-align: center;
+        font-size: 1.25em;
+    }
+    
+    p {
+        color: #151515;
+        font-size: 0.75em;
+    }
+
+    .person_panel-button {
+        position: absolute;
+        top: calc(50% + 625px);
+        right: calc(50% + 135px); 
+        transform: translate(50%, -50%);
+        padding: 10px 20px;
+        border: none;
+        font-size: 1em;
+        border-radius: 15px;
+        background-color: #ADFF2F;
+        color: #151515;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .logout-button {
+        position: absolute;
+        top: calc(50% + 625px);
+        left: calc(50% + 135px); 
+        transform: translate(-50%, -50%);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 15px;
+        background-color: #ADFF2F;
+        color: #151515;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 1em;
+    }
+
+    .upload-form label {
+        background-color: #151515;
+        color: #ADFF2F;
+        font-size: 0.7em;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px; 
+    }
+
+    .upload-button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #151515;
+        font-size: 0.7em;
+        color: #ADFF2F;
+        text-decoration: none;
+        cursor: pointer;
+        margin-top: 10px; 
+    }
+}
+
+@media (min-width: 768px) {
+    .top-left {
+        top: calc(50% + 33px);
+        left: 26%;
+    }
+    
+    .top-right {
+        top: calc(50% + 33px);
+        right: 26%;
+    }
+    
+    .small-img {
+        width: 75%;
+        height: auto;
+    }
+
+    h1 {
+        position: absolute;
+        top: calc(50% + 65px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ADFF2F;
+        color: #151515;
+        font-weight: bold;
+        white-space: nowrap;
+        text-align: center; 
+        font-size: 1.1em;
+        padding: 20px;
+        margin: 0;
+        border-radius: 25px;
+        width: 47%;
+    }
+
+    .achievement_grad {
+        position: absolute;
+        top: calc(50% + 1325px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .achievement_grad img {
+        width: 95%;
+        height: 95%;
+    }
+
+    .achievement {
+        position: absolute;
+        top: calc(50% + 550px);
+        left: calc(50% - 375px);
+        transform: translate(50%, 50%);
+        background-color: #151515;
+        border-radius: 31px;
+        border: 5px solid rgb(173, 255, 47); 
+    }
+    
+    .achievement p {
+        text-align: center;
+        font-size: 1.25em;
+        color: #ADFF2F;
+    }
+
+    .profile-info {
+        position: absolute;
+        top: calc(50% + 350px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ADFF2F;
+        padding: 20px;
+        border-radius: 30px;
+        text-align: center;
+        font-size: 1.25em;
+    }
+    
+    p {
+        color: #151515;
+        font-size: 0.75em;
+    }
+
+    .person_panel-button {
+        position: absolute;
+        top: calc(50% + 625px);
+        right: calc(50% + 135px); 
+        transform: translate(50%, -50%);
+        padding: 10px 20px;
+        border: none;
+        font-size: 1em;
+        border-radius: 15px;
+        background-color: #ADFF2F;
+        color: #151515;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .logout-button {
+        position: absolute;
+        top: calc(50% + 625px);
+        left: calc(50% + 135px); 
+        transform: translate(-50%, -50%);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 15px;
+        background-color: #ADFF2F;
+        color: #151515;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 1em;
+    }
+
+    .upload-form label {
+        background-color: #151515;
+        color: #ADFF2F;
+        font-size: 0.7em;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px; 
+    }
+
+    .upload-button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #151515;
+        font-size: 0.7em;
+        color: #ADFF2F;
+        text-decoration: none;
+        cursor: pointer;
+        margin-top: 10px; 
+    }
+}
+
+
+@media (min-width: 992px) {
+    .top-left {
+        top: calc(50% + 33px);
+        left: 26%;
+    }
+    
+    .top-right {
+        top: calc(50% + 33px);
+        right: 26%;
+    }
+    
+    .small-img {
+        width: 75%;
+        height: auto;
+    }
+
+    h1 {
+        position: absolute;
+        top: calc(50% + 65px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ADFF2F;
+        color: #151515;
+        font-weight: bold;
+        white-space: nowrap;
+        text-align: center; 
+        font-size: 1.5em;
+        padding: 20px;
+        margin: 0;
+        border-radius: 25px;
+        width: 47%;
+    }
+
+    .achievement_grad {
+        position: absolute;
+        top: calc(50% + 1325px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .achievement_grad img {
+        width: 85%;
+        height: 85%;
+    }
+
+    .achievement {
+        position: absolute;
+        top: calc(50% + 550px);
+        left: calc(50% - 375px);
+        transform: translate(50%, 50%);
+        background-color: #151515;
+        border-radius: 31px;
+        border: 5px solid rgb(173, 255, 47); 
+    }
+    
+    .achievement p {
+        text-align: center;
+        font-size: 1.25em;
+        color: #ADFF2F;
+    }
+
+    .profile-info {
+        position: absolute;
+        top: calc(50% + 350px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ADFF2F;
+        padding: 20px;
+        border-radius: 30px;
+        text-align: center;
+        font-size: 1.25em;
+    }
+    
+    p {
+        color: #151515;
+        font-size: 1em;
+    }
+
+    .person_panel-button {
+        position: absolute;
+        top: calc(50% + 625px);
+        right: calc(50% + 135px); 
+        transform: translate(50%, -50%);
+        padding: 10px 20px;
+        border: none;
+        font-size: 1.25em;
+        border-radius: 15px;
+        background-color: #ADFF2F;
+        color: #151515;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .logout-button {
+        position: absolute;
+        top: calc(50% + 625px);
+        left: calc(50% + 135px); 
+        transform: translate(-50%, -50%);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 15px;
+        background-color: #ADFF2F;
+        color: #151515;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 1.25em;
+    }
+
+    .upload-form label {
+        background-color: #151515;
+        color: #ADFF2F;
+        font-size: 1em;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px; 
+    }
+
+    .upload-button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #151515;
+        font-size: 1em;
+        color: #ADFF2F;
+        text-decoration: none;
+        cursor: pointer;
+        margin-top: 10px; 
+    }
+}
+
+@media (min-width: 1200px) {
+    .top-left {
+        top: calc(50% + 33px);
+        left: 26%;
+    }
+    
+    .top-right {
+        top: calc(50% + 33px);
+        right: 26%;
+    }
+    
+    .small-img {
+        width: 75%;
+        height: auto;
+    }
+
+    h1 {
+        position: absolute;
+        top: calc(50% + 65px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ADFF2F;
+        color: #151515;
+        font-weight: bold;
+        white-space: nowrap;
+        text-align: center; 
+        font-size: 2.25em;
+        padding: 20px;
+        margin: 0;
+        border-radius: 25px;
+        width: 47%;
+    }
+
+    .achievement_grad {
+        position: absolute;
+        top: calc(50% + 1525px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .achievement_grad img {
+        width: 75%;
+        height: 75%;
+    }
+
+    .achievement {
+        position: absolute;
+        top: calc(50% + 550px);
+        left: calc(50% - 375px);
+        transform: translate(50%, 50%);
+        background-color: #151515;
+        border-radius: 31px;
+        border: 5px solid rgb(173, 255, 47); 
+    }
+    
+    .achievement p {
+        text-align: center;
+        font-size: 1.25em;
+        color: #ADFF2F;
+    }
+
+    .profile-info {
+        position: absolute;
+        top: calc(50% + 350px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ADFF2F;
+        padding: 20px;
+        border-radius: 30px;
+        text-align: center;
+        font-size: 1.25em;
+    }
+    
+    p {
+        color: #151515;
+        font-size: 1em;
+    }
+
+    .person_panel-button {
+        position: absolute;
+        top: calc(50% + 625px);
+        right: calc(50% + 135px); 
+        transform: translate(50%, -50%);
+        padding: 10px 20px;
+        border: none;
+        font-size: 1.25em;
+        border-radius: 15px;
+        background-color: #ADFF2F;
+        color: #151515;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .logout-button {
+        position: absolute;
+        top: calc(50% + 625px);
+        left: calc(50% + 135px); 
+        transform: translate(-50%, -50%);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 15px;
+        background-color: #ADFF2F;
+        color: #151515;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 1.25em;
+    }
+
+    .upload-form label {
+        background-color: #151515;
+        color: #ADFF2F;
+        font-size: 1.25em;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px; 
+    }
+
+    .upload-button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #151515;
+        font-size: 1.25em;
+        color: #ADFF2F;
+        text-decoration: none;
+        cursor: pointer;
+        margin-top: 10px; 
+    }
 }
